@@ -1,0 +1,16 @@
+{
+  "name": "APITestingTask",
+  "version": "1.0.0",
+  "description": "REST API tests for sample website",
+  "main": "tests.js",
+  "author": "Maria Spirina <maria.spirina@nordigy.ru>",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.3.2",
+    "node-fetch": "^2.6.1"
+  }
+}
