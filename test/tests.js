@@ -19,7 +19,43 @@ testCase("/GET posts", function () {
       });
   });
 
-  // it("it should GET random post on ID", (done) => {
+ 
+  it("it should GET random post  on id and title", (done) => {
+    const title="laboriosam dolor voluptates";
+    const id=10;
+    chai
+      .request("https://jsonplaceholder.typicode.com")
+      .get(`/posts?userId=${id}&title=${title}`)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.have.have.lengthOf(1);
+        res.body.forEach(el=> {
+                  el.should.include({"userId":id});
+                  el.should.include({"title":title});
+                  el.should.have.property("id");
+                  el.should.have.property("body");
+                });
+        console.log('\x1b[33m\x1b[40m%s\x1b[0m ',`ID:${id} title="${title}"`)
+        console.log(res.body)
+        done();
+      });
+  });
+
+  it("it should GET random post on NOT correct title and id", (done) => {
+    const title="laboriosam dolor voluptates";
+    const id=-1;
+    chai
+      .request("https://jsonplaceholder.typicode.com")
+      .get(`/posts?userId=${id}&title=${title}`)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.empty;
+        done();
+      });
+  });
+});
+
+ // it("it should GET random post on ID", (done) => {
   //   const maxValueID = 10;
   //   // I'm not sure! May be, random userId is bad
   //   const randomIntNumber = parseInt(Math.random() * maxValueID + 1);
@@ -64,37 +100,3 @@ testCase("/GET posts", function () {
   /*
   
   */
-  it("it should GET random post  on id and title", (done) => {
-    const title="laboriosam dolor voluptates";
-    const id=10;
-    chai
-      .request("https://jsonplaceholder.typicode.com")
-      .get(`/posts?userId=${id}&title=${title}`)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.have.have.lengthOf(1);
-        res.body.forEach(el=> {
-                  el.should.include({"userId":id});
-                  el.should.include({"title":title});
-                  el.should.have.property("id");
-                  el.should.have.property("body");
-                });
-        console.log('\x1b[33m\x1b[40m%s\x1b[0m ',`ID:${id} title="${title}"`)
-        console.log(res.body)
-        done();
-      });
-  });
-
-  it("it should GET random post on NOT correct title and id", (done) => {
-    const title="laboriosam dolor voluptates";
-    const id=-1;
-    chai
-      .request("https://jsonplaceholder.typicode.com")
-      .get(`/posts?userId=${id}&title=${title}`)
-      .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.empty;
-        done();
-      });
-  });
-});
