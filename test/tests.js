@@ -19,7 +19,7 @@ testCase("/GET posts", function () {
       });
   });
 
-  it("it should GET post  on correct id and correct title", (done) => {
+  it("it should GET post  on CORRECT id and CORRECT title", (done) => {
     const title = "laboriosam dolor voluptates";
     const id = 10;
     chai
