@@ -1,8 +1,7 @@
-let chai = require("chai");
-let testCase = require("mocha").describe;
-let chaiHttp = require("chai-http");
-let should = chai.should();
-const fetch = require("node-fetch");
+const chai = require("chai");
+const testCase = require("mocha").describe;
+const chaiHttp = require("chai-http");
+const should = chai.should();
 
 chai.use(chaiHttp);
 
