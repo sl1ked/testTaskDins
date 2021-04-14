@@ -50,7 +50,7 @@ output: 1. Status code=200;
         setTimeout(
           () =>
             console.log(
-              "\x1b[33m\x1b[40m%s\x1b[0m",
+              "\x1b[33m\x1b[40m%s\x1b[0m", // coloring output
               `ID=${id};title="${title}"\n`,
               res.body
             ),
