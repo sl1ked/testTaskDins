@@ -27,7 +27,7 @@ testCase("/GET posts", function () {
 input: correct id  and title
 output: 1. Status code=200;
         2. Array of objects
-          every object have:
+          everyone object has:
             a) property id and body 
             b) value id=input id and title=input title
 */
